@@ -139,13 +139,7 @@
                         <i>Esse procedimento irá alterar o código LOCALMENTE.</i>
                     </strong>
 
-
-
-
-
-
                 </li>
-
 
             </ul>
             
@@ -192,6 +186,43 @@
                     Note que que é dado o nome da nova branch (atual).
 
                     <pre>$ git push --set-upstream origin staging</pre>
+
+                </li>
+            </ul>
+
+        </li>
+
+        <hr>
+        <li>Como unir o código - GIT MERGE
+            <ul>
+                <li>Unindo o código da branch atual (staging) com a branch principal (maaster):
+                    <ol>
+                        <li>
+                            Entra na branch 'master' (a branch que vai receber a união dos códigos):
+                            <pre>$ git checkout master</pre>
+                        </li>
+                        <li>
+                            Antes de executar o 'merge', rode o comando 'pull' para ter certeza que a sua versão 'master' está atualizada em relação ao que está no repositório, evitando "mergear" códigos obsoletos.
+                            <pre>$ git pull</pre>
+                        </li>
+                        <li>
+                            No comando abaixo será refernciada a branch de onde os códigos serão puxados para se unir às informações da branch 'master' (que é minha branch atual:
+                            <pre>$ git merge staging</pre>
+                            
+                            Será exibido um relatório dos arquivos que foram alterados:
+                            <p style="color:aliceblue; background-color:black; font-family: 'Courier New', Courier, monospace; font-size: small;">
+                                Updating 5d729ec..41589aa <br>
+                                Fast-forward <br>
+                                index.html | 135 <span style="color: green">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span style="color: red">----</span> <br>
+                                1 file changed, 128 insertions(+), 7 deletions(-)
+                            </p>
+                        </li>
+                        <li>
+                            Execute o <strong>push</strong> para gravar as alteraçoes:
+                            <pre>$ git push</pre>
+                            Proto, agora é só dar uma conferida no repositório em nuvem para confirmar se as alterações foram feitas corretamente.
+                        </li>
+                    </ol>
 
                 </li>
             </ul>
