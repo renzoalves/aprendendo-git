@@ -63,19 +63,132 @@
 
         <hr>
         <li>Ciclo de atualização de código
-            <pre>$ git commit -m "commit inicial"</pre>
-            Caso seja necessário, o Git vai pedir pra vc configurar seus dados:
             <ul>
                 <li>
-                    Configurar e-mail:
-                    <pre>$ git commit --global user.email "seuemail@provedor.com"</pre>
+                    Adicione novamente os arquivos:
+                    <pre>$ git add .</pre>
                 </li>
-                <li>Configurar seu Usernam:
-                    <pre>$ git config --global user.name "seuUserName"</pre>
+                <li>
+                    Verifique se os arquivos que foram atualizados constam na lista:
+                    <pre>$ git status</pre>
+                </li>
+                <li>
+                    Agora commite novamente:
+                    <pre>$ git commit -m "Atualização 2022.03.29"</pre>
+                </li>
+                <li>
+                    Enviando as atualizações para para o repositório:
+                    <pre>$ git push</pre>
                 </li>
             </ul>
         </li>
 
+        <hr>
+        <li>Como verificar histórico de atualizações:
+            <pre>$ git reflog</pre>
+            Serão exibidas todas as versões que foram "<strong>push</strong>-adas".
+        </li>
+
+        <hr>
+        <li>Como navegar entre as versões do seu código:<br>
+            <ul>
+                <li>
+                    Quando foi rodado o comando "git reflog", o resultado foi esse:
+                    <p style="color:aliceblue; background-color:black;font-family: 'Courier New', Courier, monospace; font-size: small;">
+                        <span style="color: yellow">5d729ec (
+                            <span style="color:aqua;">HEAD -></span>
+                            <span style="color:rgb(54, 177, 43);">master,</span>
+                            <span style="color:red;">origin/master</span>
+                            )
+                        </span>
+                        HEAD@{0}: commit: Atualização 2022.03.29-08:46<br>
+
+                        <span style="color: yellow">bde8524</span>
+                        HEAD@{1}: commit: commit inicial<br>
+
+                        <span style="color: yellow">37884a6</span>
+                        HEAD@{2}: commit (initial): commit inicial
+                    </p>
+
+                    Vamos imaginar que foi cometido um erro e será necessário voltar a uma versão anterior do código.
+                    Pra fazer isso, identifique o ID desejado, destacado acima em amarelo.<br>
+                    <pre>$ git reset--hard bde8524</pre>
+
+                    <p>RESULTADO:</p>
+                    <p style="color:aliceblue; background-color:black; font-family: 'Courier New', Courier, monospace; font-size: small;">
+                        <span style="color: yellow">bde8524 (<span style="color:aqua;">HEAD -></span> <span style="color:rgb(54, 177, 43);">master</span>)</span>
+                        
+                        HEAD@{0}: reset: moving to bde8524<br>
+
+                        <span style="color: yellow">5d729ec (<span style="color:red;">origin/master</span>)</span>
+                        HEAD@{1}: commit: commit inicial<br>
+
+                        <span style="color: yellow">37884a6 (<span style="color:aqua;">HEAD -></span> <span style="color:rgb(54, 177, 43);">master</span>)</span>
+                        HEAD@{2}: commit (initial): commit initial
+                    </p>
+
+                    <p>
+                        Pra voltar pra versão mais atual, é só repetir os passos acima passando o ID da sua última versão.<br>
+                        A versão mais atual é mostrada pela destacamento: 
+                        <span style="color: yellow; background-color:black; font-family: 'Courier New', Courier, monospace;">(
+                            <span style="color:red; background-color:black; font-family: 'Courier New', Courier, monospace;">origin/master</span>
+                            )
+                        </span>.
+                    </p>
+
+                    <strong>
+                        <i>Esse procedimento irá alterar o código LOCALMENTE.</i>
+                    </strong>
+
+
+
+
+
+
+                </li>
+
+
+            </ul>
+            
+        </li>
+
+        <hr>
+        <li>O que são Branches e como criar uma:
+            <p>São caminhos diferentes que você vai seguir durante o seu processo de Desenvolvimento.</p>
+            <ul>
+                <li>
+                    Ver quais branches estão disponíveis no momento:
+                    <pre>$ git branch</pre>
+                </li>
+                <li>
+                    Para criar uma nova branch: (NOTA: "staging" é o nome escolhido para a nova branch)
+                    <pre>$ git branch staging</pre>
+
+                    <p style="color:aliceblue; background-color:black;font-family: 'Courier New', Courier, monospace; font-size: small;">
+                        * <span style="color:green;">master</span><br>
+                        &nbsp;&nbsp;staging
+                    </p>
+
+                    <p>A branch marcada com o asterisco(*) é a branch corrente (a branch que você está).</p>
+                </li>
+                <li>
+                    Para mudar de branch:
+                    <pre>$ git checkout staging</pre>
+
+                    <p style="color:aliceblue; background-color:black;font-family: 'Courier New', Courier, monospace; font-size: small;">
+                        &nbsp;&nbsp;master <br>
+                        * <span style="color:green;">staging</span>
+                    </p>
+
+                    <p>Note que agora é a branch 'staging' que está selecionada.</p>
+                </li>
+                <li>
+                    Enviando as atualizações para para o repositório:
+                    <pre>$ git push</pre>
+                </li>
+            </ul>
+
+        </li>
 
     </ul>
 
