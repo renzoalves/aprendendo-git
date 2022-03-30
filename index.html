@@ -57,7 +57,6 @@
                     <pre>$ git push --set-upstream origin master</pre>
                 </li>
             </ol>
-            <pre></pre>
 
         </li>
 
@@ -183,8 +182,17 @@
                     <p>Note que agora é a branch 'staging' que está selecionada.</p>
                 </li>
                 <li>
-                    Enviando as atualizações para para o repositório:
+                    Agora vamos fazer o processo pra subir a versão do projeto definida para a branch 'staging'. <br>
+                    
+                    <pre>$ git add .</pre>
+                    <pre>$ git commit -m "adicionando nova branch"</pre>
                     <pre>$ git push</pre>
+                    
+                    Quando você cria uma branch nova e você quer subir essa branch pro repositório em nuvem, temos de rodar o comando (que o próprio git fornece): <br>
+                    Note que que é dado o nome da nova branch (atual).
+
+                    <pre>$ git push --set-upstream origin staging</pre>
+
                 </li>
             </ul>
 
