@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso rápido de Git/Github</title>
+
+    <style type="text/css">
+        .div {
+            border-radius:0.25rem; 
+            border: green;
+            border-width: 1px;
+            border-style: double;
+            padding: 10px;
+
+        }
+    </style>
 </head>
 <body>
     <h1>Guia rápido para Git/Github</h1>
@@ -239,24 +250,85 @@
 
         <hr>
         <li>Um 'merge' democrático - PULL REQUEST
+
+            <p>
+                Esse processo será utilizado quando for necessário que alguém autorize as suas alterações, permitindo mergear o seu código à branch principal(master).
+            </p>
+
+            <ol>
+                <li>Quando estiver em uma branch diferente da principal(master), faça o <strong>push</strong> normalmente.</li>
+
+                <li>No GitHub (site), na pasta principal do repositório, será exibida uma mensagem dizendo que a determinada branch recebeu <strong>pushes</strong>.
+                    <p>
+                        Considerando que quem fez o <strong>push</strong> foi a branch 'sistema-de-login', a mensagem exibida será: <br>
+                        <div class="div">
+                            <strong>sistema-de-login</strong> had recent pushes less than a minute ago. <button>Compare & pull request</button>
+                        </div>
+                    </p>
+                </li>
+                <li>Clique em "Compare & pull request"</li>
+                <li>Em "Comaparing changes", selecione a branch 'master'(principal) que vai receber o "merge" da branch 'sistema-de-login'.</li>
+                <li>Informe o título do commit e se for necessário, em "Write" descreva informações adicionais.</li>
+                <li>Depois clique em "Create pull request"</li>
+            </ol>
+            <p>
+                <strong>Pronto!!</strong> <br>
+                Já está tudo "ok" para quem tiver permissão, revisar o código e aprovar ou  não o "merge".
+            </p>
+            <p>
+                Os Usuários que que estiverem marcados como "Reviewers" poderão aprovar clicando em "Merge pull request". <br>
+                Se vc estiver trabalhando "solo", poderá aprovar sua própria "pull request", se estiver em equipe, somente o(s) Revisor(es) terá(ão) esse 'direito'.
+            </p>
+            <p>
+                Quando o "pull request" for aceito, será exibida uma mensagem: <br>
+
+                <div class="div">
+                    <strong>Pull request successfully merged and closed</strong>
+                    <button>Delete branch</button>
+                </div>
+            </p>
+
+        </li>
+
+        <hr>
+        <li>GitIgnore - Como excluir arquivos mdo controle de versão 
+
             <ul>
                 <li>
-                    Adicione novamente os arquivos:
-                    <pre>$ git add .</pre>
-                </li>
-                <li>
-                    Verifique se os arquivos que foram atualizados constam na lista:
-                    <pre>$ git status</pre>
-                </li>
-                <li>
-                    Agora commite novamente:
-                    <pre>$ git commit -m "Atualização 2022.03.29"</pre>
-                </li>
-                <li>
-                    Enviando as atualizações para o repositório:
-                    <pre>$ git push</pre>
+                    <p>
+                        Para criar o arquivo <strong>.gitignore</strong>, rode o comando:
+                        <pre>$ touch .gitignore</pre>
+                    </p>
+                    <p>
+                        Dentro do arquivo <strong>.gitignore</strong> vamos definir quais pastas e/ou arquivos não queremos que sejam adicionados ao controle de versão. <br>
+                        Nesse exemplo, vamos adicionar a pasta 'segredos' da branch 'sistema-de-login' ao <strong>.gitignore</strong> para exclui-la do controle de versão.
+                    </p>
+                    <p>
+                        Para isso, edite o arquivo <strong>.gitignore</strong>, informe:
+
+                        <pre>
+segredos/
+fotos.png
+                        </pre>
+
+                        <div class="div">
+                            Para o caso de arquivos específicos, deve-se informar o path completo. Para o exmeplo do <strong>'fotos.png'</strong>, não foi incluído nenhum path, pois o arquivo está no diretório 'root'.
+                        </div>
+                        <br>
+
+                        <strong>Protno!!</strong> Agora a pasta e todo o seu conteúdo não aparecerão na listagem para controle de versão. <br> <br>
+                        Para confirmar, rode o comando:
+                        <pre>$ git status</pre>
+                        Ela não vai mais aparecer marcada para ser adicionada                        
+                    </p>
+
+
+
+                   
                 </li>
             </ul>
+
+
         </li>
     </ul>
 
