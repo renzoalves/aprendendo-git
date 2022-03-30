@@ -1,5 +1,6 @@
 digite seu e-mail
 digite sua senha
+digite sua idade
 
 
 Criar uma nova branch com base na branch principal(master) e já se posicionar nela: <br>
